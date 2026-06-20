@@ -67,3 +67,36 @@ python manage.py runserver
     "message": "Validation failed",
     "errors": {...}
 }
+
+## Running with Docker
+
+This project is fully containerized for consistent, environment-independent deployment.
+
+### Prerequisites
+- Docker Desktop installed and running
+
+### Build the image
+```bash
+docker build -t expense-api .
+```
+
+### Run the container
+```bash
+docker run -d -p 8000:8000 --name expense-api-container expense-api
+```
+
+### Access the API
+- Swagger documentation: `http://localhost:8000/api/docs/`
+- Admin panel: `http://localhost:8000/admin/`
+
+### Stop the container
+```bash
+docker stop expense-api-container
+```
+
+### Tech stack in container
+- Python 3.12
+- Django 6.0.5
+- Django REST Framework
+- JWT Authentication
+- drf-spectacular (OpenAPI/Swagger docs)
